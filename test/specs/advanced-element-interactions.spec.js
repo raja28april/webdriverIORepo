@@ -100,7 +100,7 @@ describe('advanced element interactions - examples', () => {
 
     });
 
-    it.only('iframes handling', async () => {
+    it('iframes handling', async () => {
         await browser.url('/IFrame/index.html');
         const frame = await $('#frame');
         await browser.switchToFrame(frame);
@@ -108,6 +108,45 @@ describe('advanced element interactions - examples', () => {
         await browser.switchToParentFrame();
         await browser.pause(3000);
     });
+
+    it('alerts', async () => {
+        await browser.url('/Popup-Alerts/index.html');
+        await $('#button1').click();
+        // await browser.waitUntil(async function () {
+        //     browser.isAlertOpen();
+        // }, {
+        //     timeout: 10000,
+        //     timeoutMsg: 'alert not present within 10secs'
+        // });
+        await browser.pause(2000);
+        await browser.acceptAlert();
+        await browser.pause(2000);
+
+        await $('#button4').click();
+        const alertText = await browser.getAlertText();
+        await expect(alertText).toEqual('Press a button!');
+
+        await browser.acceptAlert();
+        await expect($('#confirm-alert-text')).toHaveText('You pressed ok!');
+        await browser.pause(2000);
+
+        await $('#button4').click();
+        await browser.pause(2000);
+        await browser.dismissAlert();
+        await expect($('#confirm-alert-text')).toHaveText('You pressed cancel!');
+        await browser.pause(2000);
+
+    });
+
+    it.only('file upload', async () => {
+        await browser.url('/File-Upload/index.html');
+        await $('#myFile').addValue(`${process.cwd()}/test/data/dummy-file.txt`);
+        await browser.pause(2000);
+        await $('#submit-button').click();
+        await browser.pause(2000);
+
+    });
+
 
 
 
