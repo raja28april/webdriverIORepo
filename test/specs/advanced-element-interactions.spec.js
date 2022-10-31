@@ -33,7 +33,7 @@ describe('advanced element interactions - examples', () => {
         await browser.pause(3000);
     });
 
-    it.only('state commands', async () => {
+    it('state commands', async () => {
         await browser.url('Dropdown-Checkboxes-RadioButtons/index.html');
         const lettuceRadioButton = await $('[value="lettuce"]');
         const lettuceRadioButton_isDisplayed = await lettuceRadioButton.isDisplayed();
@@ -49,6 +49,29 @@ describe('advanced element interactions - examples', () => {
         const cabbageRadioButton_isEnabled = await cabbageRadioButton.isEnabled();
         await expect(cabbageRadioButton_isEnabled).toEqual(false);
         await expect(cabbageRadioButton_isEnabled).toBeDisabled();
+
+    });
+
+    it.only('actions', async () => {
+        //Drag & drop
+        await browser.url("/Actions/index.html");
+        const ele = await $('#draggable');
+        const target = await $('#droppable');
+        await ele.dragAndDrop(target);
+        await browser.pause(5000);
+
+        //double click
+        const btn_doubleClick = await $('#double-click');
+        await btn_doubleClick.doubleClick();
+        await browser.pause(5000);
+
+        //mouse hover
+        await $("//button[text()='Hover Over Me First!']").moveTo();
+        const firstLink = await $("(//a[text()='Link 1'])[1]");
+        await firstLink.waitForClickable();
+        await firstLink.click();
+
+        await browser.pause(2000);
 
     });
 
