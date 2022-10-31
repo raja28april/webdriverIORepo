@@ -58,12 +58,12 @@ describe('advanced element interactions - examples', () => {
         const ele = await $('#draggable');
         const target = await $('#droppable');
         await ele.dragAndDrop(target);
-        await browser.pause(5000);
+        await browser.pause(2000);
 
         //double click
         const btn_doubleClick = await $('#double-click');
         await btn_doubleClick.doubleClick();
-        await browser.pause(5000);
+        await browser.pause(2000);
 
         //mouse hover
         await $("//button[text()='Hover Over Me First!']").moveTo();
@@ -72,6 +72,31 @@ describe('advanced element interactions - examples', () => {
         await firstLink.click();
 
         await browser.pause(2000);
+
+        //handling windows
+        await browser.url('https://www.webdriveruniversity.com');
+        await browser.newWindow('https://www.automationteststore.com');
+
+        let currentWindow_title = await browser.getTitle();
+        console.log(`>> Current window title: ${currentWindow_title}`);
+        await browser.pause(3000);
+
+        await browser.switchWindow('WebDriverUniversity.com');
+        let parentWindow_title = await browser.getTitle();
+        console.log(`>> Parent title window: ${parentWindow_title}`)
+        await expect(browser).toHaveUrlContaining('webdriveruniversity.com');
+        await browser.pause(2000);
+
+        await $('#contact-us').click();
+        await browser.switchWindow('automationteststore');
+        await browser.closeWindow();
+
+        await browser.switchWindow('contactus');
+        await browser.closeWindow();
+
+        await browser.switchWindow('webdriveruni');
+        console.log(await browser.getTitle());
+        await browser.pause(3000);
 
     });
 
