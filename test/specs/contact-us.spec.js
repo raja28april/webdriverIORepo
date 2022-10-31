@@ -9,7 +9,7 @@ describe('webdriverUniversity contact us page', () => {
         console.log('no');
     });
 
-    it('valid submission - submit all information', async () => {
+    it.only('valid submission - submit all information', async () => {
         //first name
         const firstName = await $('//*[@name="first_name"]');
         //last name
@@ -28,8 +28,9 @@ describe('webdriverUniversity contact us page', () => {
         await btn_submit.click();
 
         const successfulSubmissionHeader = $('#contact_reply>h1');
-        await expect(successfulSubmissionHeader).toHaveText('Thank You for your Message!')
-
+        await expect(successfulSubmissionHeader).toHaveText('Thank You for your Message!')//expect library
+        const successfulSubmissionHeader2 = await (await $('#contact_reply>h1')).getText();
+        expect(successfulSubmissionHeader).toEqual('Thank You for your Message!')//jest library
         await browser.pause(5000);
 
     });
