@@ -2,10 +2,10 @@ describe('webdriverUniversity contact us page', () => {
 
     beforeEach(async () => {
         await browser.maximizeWindow();
+        await browser.url('/Contact-Us/contactus.html');
     });
 
     it('valid submission - submit all information', async () => {
-        await browser.url('/Contact-Us/contactus.html');
         //first name
         const firstName = await $('//*[@name="first_name"]');
         //last name
@@ -31,7 +31,6 @@ describe('webdriverUniversity contact us page', () => {
     });
 
     it('invalid submission - dont submit all information', async () => {
-        await browser.url('/Contact-Us/contactus.html');
         //first name
         const firstName = await $('//*[@name="first_name"]');
         //last name
