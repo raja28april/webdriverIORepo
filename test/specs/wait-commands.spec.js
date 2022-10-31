@@ -28,8 +28,20 @@ describe('', () => {
         await browser.pause(1500);
     });
 
-    it.only('using waitfor exists', async () => {
+    it('using waitfor exists', async () => {
         const btn_clickMe = await $('#button1');
         await btn_clickMe.waitForExist();
+    });
+
+    it.only('using wait until', async () => {
+        await browser.url('/Accordion/index.html');
+        const btn_loading = await $('#text-appear-box');
+        await btn_loading.waitUntil(async function () {
+            return (await this.getText() === 'LO7ADING COMPLETE');
+        }, {
+            timeout: 15000,
+            timeoutMsg: `Element visible for more that 15sec`
+        })
+
     });
 });
