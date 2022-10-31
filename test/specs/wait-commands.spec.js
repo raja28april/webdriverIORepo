@@ -21,10 +21,15 @@ describe('', () => {
         await browser.pause(1500);
     });
 
-    it.only('using wait for displayed', async () => {
+    it('using wait for displayed', async () => {
         const btn_clickMe = await $('#button1');
         await btn_clickMe.waitForDisplayed();
         await btn_clickMe.click();
         await browser.pause(1500);
+    });
+
+    it.only('using waitfor exists', async () => {
+        const btn_clickMe = await $('#button1');
+        await btn_clickMe.waitForExist();
     });
 });
