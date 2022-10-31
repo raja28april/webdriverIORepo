@@ -13,10 +13,17 @@ describe('', () => {
         await browser.pause(1500);
     });
 
-    it.only('using waitFor methods', async () => {
+    it('using waitFor methods', async () => {
         const btn_clickMe = await $('#button1');
         // await btn_clickMe.waitForClickable({ timeout: 3000 })
         await btn_clickMe.waitForClickable();
+        await btn_clickMe.click();
+        await browser.pause(1500);
+    });
+
+    it.only('using wait for displayed', async () => {
+        const btn_clickMe = await $('#button1');
+        await btn_clickMe.waitForDisplayed();
         await btn_clickMe.click();
         await browser.pause(1500);
     });
