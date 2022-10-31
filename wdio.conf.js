@@ -21,7 +21,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/locating-elements.spec.js'
+        './test/specs/**/wait-commands.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
