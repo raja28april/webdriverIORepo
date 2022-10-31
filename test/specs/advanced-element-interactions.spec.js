@@ -15,7 +15,7 @@ describe('advanced element interactions - examples', () => {
         await firstNameTextField.clearValue();
     });
 
-    it.only('dropdown', async () => {
+    it('dropdown', async () => {
         await browser.url('/Dropdown-Checkboxes-RadioButtons/index.html');
         const dropDown_progLang = $('#dropdowm-menu-1');
         await dropDown_progLang.selectByAttribute('value', 'python');
@@ -32,5 +32,27 @@ describe('advanced element interactions - examples', () => {
         await expect(dropDown_feLang).toHaveValueContaining('CSS', { ignoreCase: true });
         await browser.pause(3000);
     });
+
+    it.only('state commands', async () => {
+        await browser.url('Dropdown-Checkboxes-RadioButtons/index.html');
+        const lettuceRadioButton = await $('[value="lettuce"]');
+        const lettuceRadioButton_isDisplayed = await lettuceRadioButton.isDisplayed();
+
+        await expect(lettuceRadioButton_isDisplayed).toEqual(true);
+        await expect(lettuceRadioButton).toBeEnabled();
+        await browser.pause(5000);
+
+        const lettuceRadioButton_isClickable = await lettuceRadioButton.isClickable();
+        await expect(lettuceRadioButton_isClickable).toEqual(true);
+
+        const cabbageRadioButton = await $('[value="cabbage"]');
+        const cabbageRadioButton_isEnabled = await cabbageRadioButton.isEnabled();
+        await expect(cabbageRadioButton_isEnabled).toEqual(false);
+        await expect(cabbageRadioButton_isEnabled).toBeDisabled();
+
+    });
+
+
+
 
 });
