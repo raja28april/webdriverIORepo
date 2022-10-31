@@ -52,7 +52,7 @@ describe('advanced element interactions - examples', () => {
 
     });
 
-    it.only('actions', async () => {
+    it('actions', async () => {
         //Drag & drop
         await browser.url("/Actions/index.html");
         const ele = await $('#draggable');
@@ -98,6 +98,15 @@ describe('advanced element interactions - examples', () => {
         console.log(await browser.getTitle());
         await browser.pause(3000);
 
+    });
+
+    it.only('iframes handling', async () => {
+        await browser.url('/IFrame/index.html');
+        const frame = await $('#frame');
+        await browser.switchToFrame(frame);
+        await $('//*[text()="Our Products"]').click();
+        await browser.switchToParentFrame();
+        await browser.pause(3000);
     });
 
 
