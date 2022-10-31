@@ -3,6 +3,10 @@ describe('webdriverUniversity contact us page', () => {
     beforeEach(async () => {
         await browser.maximizeWindow();
         await browser.url('/Contact-Us/contactus.html');
+        console.log(`>> browser object: ${JSON.stringify(browser)}`);
+    });
+    it.only('', () => {
+        console.log('no');
     });
 
     it('valid submission - submit all information', async () => {
