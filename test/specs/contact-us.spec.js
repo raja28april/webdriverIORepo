@@ -5,7 +5,8 @@ describe('webdriverUniversity contact us page', () => {
         await browser.url('/Contact-Us/contactus.html');
         console.log(`>> browser object: ${JSON.stringify(browser)}`);
     });
-    it.only('', () => {
+
+    it('', () => {
         console.log('no');
     });
 
@@ -25,9 +26,12 @@ describe('webdriverUniversity contact us page', () => {
         await lastName.setValue('R');
         await email.setValue('raja123@gmail.com');
         await message.setValue('Testing the message section');
+
+        await browser.debug();
         await btn_submit.click();
 
         const successfulSubmissionHeader = $('#contact_reply>h1');
+        console.log(`successfulSubmissionHeader element: ${JSON.stringify(await successfulSubmissionHeader)}`);
         await expect(successfulSubmissionHeader).toHaveText('Thank You for your Message!')//expect library
         const successfulSubmissionHeader2 = await (await $('#contact_reply>h1')).getText();
         expect(successfulSubmissionHeader).toEqual('Thank You for your Message!')//jest library
