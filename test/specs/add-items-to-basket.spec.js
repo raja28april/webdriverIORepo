@@ -1,15 +1,13 @@
 describe('add items to basket', () => {
-    beforeEach(async () => {
-        await browser.url("https://automationteststore.com/");
-    });
-
     it("add specific 'skincare products' to basket & validate cart total", async () => {
+        await browser.url("https://automationteststore.com/");
+
         const skincareLinks = await $$("//a[contains(text(), 'Skincare')]");
         await skincareLinks[1].click();
 
         const skincareProducts_Header_Links = await $$('.fixed_wrapper .prdocutname');
 
-        const itemPrices = [];
+        const itemPrices = []; //$220.00 $38.00
 
         for (const header of skincareProducts_Header_Links) {
             const tempHeaderText = await header.getText();
@@ -33,7 +31,28 @@ describe('add items to basket', () => {
                         + "| //a[@data-id='" + itemId + "']/following-sibling::div/div[@class='oneprice']").getText()
                 )
             }
+            const formattedItemPrices = []; //$220.00 -> 220.00, $38.00 -> 38.00
+
+            itemPrices.forEach((price) => {
+                formattedItemPrices.push(price.replace("$", ""));
+            });
+
+            var itemsTotal = 0;
+            formattedItemPrices.forEach(price => itemsTotal += parseFloat(price));
+            console.log("Items Total: " + itemsTotal); //258
         }
-        await browser.pause(5000);
+
+        await $("//span[text()='Cart']").click();
+        await expect(browser).toHaveUrlContaining("checkout");
+
+        var tempShippingRate = await $("//span[text()='Flat Shipping Rate:']/../following-sibling::td").getText();
+        var shippingRate = tempShippingRate.replace('$', '');
+        itemsTotal = itemsTotal + parseFloat(shippingRate);
+        console.log("Items Total + Shipping Rate: " + itemsTotal); //260
+
+        //extract cart total
+        var cartTotal = await (await $("//span[text()='Total:']/../following-sibling::td")).getText();
+        cartTotal = cartTotal.replace('$', ''); //260
+        expect(itemsTotal).toEqual(parseFloat(cartTotal));
     });
 });
