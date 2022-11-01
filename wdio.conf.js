@@ -70,7 +70,15 @@ exports.config = {
         maxInstances: 5,
         //
         browserName: 'chrome',
-        acceptInsecureCerts: true
+        acceptInsecureCerts: true,
+        "goog:chromeOptions": {
+            args: [
+                "--incognito"
+            ],
+        },
+        timeouts: {
+            "pageLoad": 30000
+        }
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -78,7 +86,15 @@ exports.config = {
     },
     {
         maxInstances: 2,
-        browserName: 'firefox'
+        browserName: 'firefox',
+        "moz:firefoxOptions": {
+            args: [
+                "--private"
+            ],
+        },
+        timeouts: {
+            "pageLoad": 30000
+        }
     }
 
     ],

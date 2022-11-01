@@ -61,3 +61,7 @@ npm install @wdio/selenium-standalone-service --save-dev
 change service to [selenium-standalone] in wdio.config
 
 add capability for new browser - eg: firefox
+
+# PageLoadtimeout
+
+added in browser options
