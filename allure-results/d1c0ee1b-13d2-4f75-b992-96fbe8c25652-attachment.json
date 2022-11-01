@@ -1,0 +1,4 @@
+{
+  "script": "return (() => {\n      return document.body.style.backgroundColor = 'blue';\n    }).apply(null, arguments)",
+  "args": []
+}

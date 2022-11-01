@@ -21,7 +21,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/advanced-element-interactions.spec.js'
+        './test/specs/**/*.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -132,7 +132,11 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: ['spec', ['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: false,
+        disableWebdriverScreenshotsReporting: false,
+    }]],
 
 
 

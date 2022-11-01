@@ -1,0 +1,59 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1667279119168' stop='1667279123577'>
+    <name>advanced element interactions - examples</name>
+    <title>advanced element interactions - examples</title>
+    <test-cases>
+        <test-case start='1667279119237' status='passed' stop='1667279123576'>
+            <name>JS execute</name>
+            <title>JS execute</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-107.0.5304.87'/>
+                <parameter kind='argument' name='browser' value='chrome-107.0.5304.87'/>
+            </parameters>
+            <steps>
+                <step start='1667279119240' status='passed' stop='1667279119613'>
+                    <name>POST /session/:sessionId/window/maximize</name>
+                    <title>POST /session/:sessionId/window/maximize</title>
+                    <attachments>
+                        <attachment title='Response' source='b5715b4b-10e0-40c8-90a7-3429b3d2a0dd-attachment.json' type='application/json' size='57'/>
+                    </attachments>
+                    <steps/>
+                </step>
+                <step start='1667279119615' status='passed' stop='1667279120527'>
+                    <name>POST /session/:sessionId/url</name>
+                    <title>POST /session/:sessionId/url</title>
+                    <attachments>
+                        <attachment title='Request' source='cb6a0a61-1c08-478c-a21b-e856344ba871-attachment.json' type='application/json' size='77'/>
+                    </attachments>
+                    <steps/>
+                </step>
+                <step start='1667279120527' status='passed' stop='1667279120549'>
+                    <name>POST /session/:sessionId/execute/sync</name>
+                    <title>POST /session/:sessionId/execute/sync</title>
+                    <attachments>
+                        <attachment title='Request' source='78c5d1b7-7d02-4567-80fa-b9f1e473f4a3-attachment.json' type='application/json' size='157'/>
+                    </attachments>
+                    <steps/>
+                </step>
+                <step start='1667279120549' status='passed' stop='1667279120573'>
+                    <name>POST /session/:sessionId/execute/sync</name>
+                    <title>POST /session/:sessionId/execute/sync</title>
+                    <attachments>
+                        <attachment title='Request' source='d1c0ee1b-13d2-4f75-b992-96fbe8c25652-attachment.json' type='application/json' size='138'/>
+                        <attachment title='Response' source='3b342c49-17c8-463f-b41c-0d239618db47-attachment.json' type='application/json' size='6'/>
+                    </attachments>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
