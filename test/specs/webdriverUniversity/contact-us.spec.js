@@ -1,5 +1,6 @@
 import allureReporter from "@wdio/allure-reporter";
 import contactUsPage from "../../pageobjects/webdriverUniversity/contact-us.page";
+
 describe('webdriverUniversity contact us page', () => {
 
     beforeEach(async () => {
