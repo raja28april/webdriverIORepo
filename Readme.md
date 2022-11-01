@@ -67,3 +67,6 @@ add capability for new browser - eg: firefox
 added in browser options
 
 # Managing environments using wdio.config.js fine
+
+command to run with new wdio.config.js file
+npx wdio config/wdio.uat.config.js --spec test/specs/webdriverUniversity/contact-us.spec.js
