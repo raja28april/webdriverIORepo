@@ -24,7 +24,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/contact-us.spec.js'
+        './test/specs/**/add-items-to-basket.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
