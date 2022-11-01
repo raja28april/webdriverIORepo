@@ -1,3 +1,4 @@
+import allureReporter from "@wdio/allure-reporter";
 describe('webdriverUniversity contact us page', () => {
 
     beforeEach(async () => {
@@ -10,7 +11,10 @@ describe('webdriverUniversity contact us page', () => {
         console.log('no');
     });
 
-    it.only('valid submission - submit all information', async () => {
+    it('valid submission - submit all information', async () => {
+        allureReporter.addFeature("Contact us page - valid submission");
+        allureReporter.addDescription("Validate contact us page by submitting all data");
+        allureReporter.addSeverity("Critical");
         //first name
         const firstName = await $('//*[@name="first_name"]');
         //last name
@@ -40,6 +44,9 @@ describe('webdriverUniversity contact us page', () => {
     });
 
     it('invalid submission - dont submit all information', async () => {
+        allureReporter.addFeature("Contact us page - invalid submission");
+        allureReporter.addDescription("Validate contact us page by not submitting all data");
+        allureReporter.addSeverity("normal");
         //first name
         const firstName = await $('//*[@name="first_name"]');
         //last name
