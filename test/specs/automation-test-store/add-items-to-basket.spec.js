@@ -1,13 +1,14 @@
 import homePage from "../../pageobjects/automation-test-store/home.page";
+import SkinCarePage from "../../pageobjects/automation-test-store/skincare.page"
 
 describe('add items to basket', () => {
     it("add specific 'skincare products' to basket & validate cart total", async () => {
         await homePage.open();
 
-        const skincareLinks = await $$("//a[contains(text(), 'Skincare')]");
-        await skincareLinks[1].click();
+        await homePage.categoryMenuComponent.categoryMenuLink('Skincare')[1].click();
 
-        const skincareProducts_Header_Links = await $$('.fixed_wrapper .prdocutname');
+        // const skincareProducts_Header_Links = await $$('.fixed_wrapper .prdocutname');
+        const skincareProducts_Header_Links = await SkinCarePage.itemComp.itemHeaderLinks;
 
         const itemPrices = []; //$220.00 $38.00
 
