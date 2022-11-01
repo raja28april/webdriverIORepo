@@ -14,6 +14,7 @@
         "@wdio/cli": "^7.25.4",
         "@wdio/local-runner": "^7.25.4",
         "@wdio/mocha-framework": "^7.25.4",
+        "@wdio/selenium-standalone-service": "^7.25.4",
         "@wdio/spec-reporter": "^7.25.4",
         "chromedriver": "^107.0.2",
         "wdio-chromedriver-service": "^8.0.0"
@@ -22,7 +23,8 @@
         "wdio": "wdio run wdio.conf.js",
         "automation-test-store-tests": "npx wdio --spec test/specs/automation-test-store/*.spec.js",
         "webdriverUniversity-tests": "npx wdio --spec test/specs/webdriverUniversity/*.spec.js",
-        "smoke-suite": "npx wdio --suite smoke"
+        "smoke-suite": "npx wdio --suite smoke",
+        "automation-test-store-suite": "npx wdio --suite automationTestStore"
     },
     "dependencies": {
         "allure-commandline": "^2.18.1"

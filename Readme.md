@@ -52,4 +52,12 @@ eg:npm run automation-test-store-tests
 # Run suites
 
 npx wdio --suite {suiteName}
-eg: npx wdio --suite smoke
+eg:
+
+# Running tests in parallel
+
+step1: install selenium-standalone using
+npm install @wdio/selenium-standalone-service --save-dev
+change service to [selenium-standalone] in wdio.config
+
+add capability for new browser - eg: firefox
