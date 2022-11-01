@@ -65,3 +65,5 @@ add capability for new browser - eg: firefox
 # PageLoadtimeout
 
 added in browser options
+
+# Managing environments using wdio.config.js fine

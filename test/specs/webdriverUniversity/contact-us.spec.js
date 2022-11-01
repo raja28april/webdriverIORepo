@@ -9,11 +9,12 @@ describe('webdriverUniversity contact us page', () => {
         console.log(`>> browser object: ${JSON.stringify(browser)}`);
     });
 
-    it('', () => {
+    it.only('', () => {
         console.log('no');
+        console.log("CONFIG ENV: " + browser.config.environment);
     });
 
-    it.only('valid submission - submit all information', async function () {
+    it('valid submission - submit all information', async function () {
         // this.retries(1);
         allureReporter.addFeature("Contact us page - valid submission");
         allureReporter.addDescription("Validate contact us page by submitting all data");
