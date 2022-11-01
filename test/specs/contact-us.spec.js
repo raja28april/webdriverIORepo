@@ -17,7 +17,7 @@ describe('webdriverUniversity contact us page', () => {
         allureReporter.addFeature("Contact us page - valid submission");
         allureReporter.addDescription("Validate contact us page by submitting all data");
         allureReporter.addSeverity("Critical");
-        //first name
+        /* //first name
         const firstName = await $('//*[@name="first_name"]');
         //last name
         const lastName = await $('//*[@name="last_name"]');
@@ -35,7 +35,9 @@ describe('webdriverUniversity contact us page', () => {
 
         // await browser.debug();
         // await btn_submit.click();
-        browser.waitThenClick(btn_submit);
+        browser.waitThenClick(btn_submit); */
+
+        contactUsPage.submitForm('Raja', 'R', 'raja123@gmail.com', 'Testing the message section');
 
         const successfulSubmissionHeader = $('#contact_reply>h1');
         console.log(`successfulSubmissionHeader element: ${JSON.stringify(await successfulSubmissionHeader)}`);
@@ -51,7 +53,7 @@ describe('webdriverUniversity contact us page', () => {
         allureReporter.addDescription("Validate contact us page by not submitting all data");
         allureReporter.addSeverity("normal");
         //first name
-        const firstName = await $('//*[@name="first_name"]');
+        /* const firstName = await $('//*[@name="first_name"]');
         //last name
         const lastName = await $('//*[@name="last_name"]');
         //email address
@@ -62,7 +64,10 @@ describe('webdriverUniversity contact us page', () => {
         await firstName.setValue('Raja');
         await lastName.setValue('R');
         await message.setValue('Testing the message section');
-        await btn_submit.click();
+        await btn_submit.click(); */
+
+        contactUsPage.submitForm('Raja', 'R', 'raja123@gmail.com', 'Testing the message section');
+
         const errormsg = await $('body');
         await browser.pause(5000);
         await expect(errormsg).toHaveTextContaining(['Errror: Invalid email address', 'Error: all fields are required', 'Errror: Invalid email address']);
