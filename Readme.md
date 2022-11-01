@@ -1,15 +1,15 @@
 # Allure reports
 
-    # step 1: npm install allure reports
+    # step 1: install allure reports
 
 npm install @wdio/allure-reporter --save-dev
 
-    # step 2: npm install
+    # step 2: install allure-commandline
 
 Allure requires Java 8 or higher
 npm install -g allure-commandline --save-dev
 
-    # step 3: run command to generate report
+    <!-- # step 3: run command to generate report
 
 npx allure generate allure-results
 
@@ -19,4 +19,11 @@ npx allure open
 
     # step 5: clean results if required
 
-npx allure generate --clean allure-results
+npx allure generate --clean allure-results -->
+
+    # step 3: Add config in onComplete hook and onPrepare hook
+    npm i allure-commandline
+    Add wdio config to generate reports in onComplete hook , ref: https://webdriver.io/docs/allure-reporter#autogenerate-report
+    Add wdio confir to delete existing reports in OnPrepare hook if (fs.existsSync("./allure-results")) {
+            fs.rmSync("./allure-results", { recursive: true });
+        }

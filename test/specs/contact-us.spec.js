@@ -27,14 +27,14 @@ describe('webdriverUniversity contact us page', () => {
         await email.setValue('raja123@gmail.com');
         await message.setValue('Testing the message section');
 
-        await browser.debug();
+        // await browser.debug();
         await btn_submit.click();
 
         const successfulSubmissionHeader = $('#contact_reply>h1');
         console.log(`successfulSubmissionHeader element: ${JSON.stringify(await successfulSubmissionHeader)}`);
         await expect(successfulSubmissionHeader).toHaveText('Thank You for your Message!')//expect library
         const successfulSubmissionHeader2 = await (await $('#contact_reply>h1')).getText();
-        expect(successfulSubmissionHeader).toEqual('Thank You for your Message!')//jest library
+        expect(successfulSubmissionHeader2).toEqual('Thank You for your Message!')//jest library
         await browser.pause(5000);
 
     });
