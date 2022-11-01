@@ -138,12 +138,24 @@ describe('advanced element interactions - examples', () => {
 
     });
 
-    it.only('file upload', async () => {
+    it('file upload', async () => {
         await browser.url('/File-Upload/index.html');
         await $('#myFile').addValue(`${process.cwd()}/test/data/dummy-file.txt`);
         await browser.pause(2000);
         await $('#submit-button').click();
         await browser.pause(2000);
+
+    });
+
+    it.only('JS execute', async () => {
+        await browser.url('/Hidden-Elements/index.html');
+        await browser.execute(() => {
+            return document.getElementById('not-displayed').setAttribute('id', '');
+        })
+        await browser.execute(() => {
+            return document.body.style.backgroundColor = 'blue';
+        })
+        await browser.pause(3000);
 
     });
 
