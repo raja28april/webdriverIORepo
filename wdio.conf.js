@@ -1,5 +1,6 @@
-const allure = require('allure-commandline')
+const allure = require('allure-commandline');
 import fs from "fs";
+const commands = require('./utils/command.js');
 exports.config = {
     //
     // ====================
@@ -123,7 +124,7 @@ exports.config = {
     framework: 'mocha',
     //
     // The number of times to retry the entire specfile when it fails as a whole
-    // specFileRetries: 1,
+    specFileRetries: 1,
     //
     // Delay in seconds between the spec file retry attempts
     // specFileRetriesDelay: 0,
@@ -139,8 +140,6 @@ exports.config = {
         disableWebdriverStepsReporting: false,
         disableWebdriverScreenshotsReporting: false,
     }]],
-
-
 
     //
     // Options to be passed to Mocha.
@@ -212,8 +211,11 @@ exports.config = {
      * @param {String} commandName hook command name
      * @param {Array} args arguments that command would receive
      */
-    // beforeCommand: function (commandName, args) {
-    // },
+    beforeCommand: function (commandName, args) {
+        Object.keys(commands).forEach((key) => {
+            browser.addCommand(key, commands[key]);
+        })
+    },
     /**
      * Hook that gets executed before the suite starts
      * @param {Object} suite suite details

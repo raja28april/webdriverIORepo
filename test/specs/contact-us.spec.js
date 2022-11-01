@@ -11,7 +11,8 @@ describe('webdriverUniversity contact us page', () => {
         console.log('no');
     });
 
-    it('valid submission - submit all information', async () => {
+    it.only('valid submission - submit all information', async function () {
+        this.retries(1);
         allureReporter.addFeature("Contact us page - valid submission");
         allureReporter.addDescription("Validate contact us page by submitting all data");
         allureReporter.addSeverity("Critical");
@@ -32,7 +33,8 @@ describe('webdriverUniversity contact us page', () => {
         await message.setValue('Testing the message section');
 
         // await browser.debug();
-        await btn_submit.click();
+        // await btn_submit.click();
+        browser.waitThenClick(btn_submit);
 
         const successfulSubmissionHeader = $('#contact_reply>h1');
         console.log(`successfulSubmissionHeader element: ${JSON.stringify(await successfulSubmissionHeader)}`);

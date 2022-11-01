@@ -27,3 +27,13 @@ npx allure generate --clean allure-results -->
     Add wdio confir to delete existing reports in OnPrepare hook if (fs.existsSync("./allure-results")) {
             fs.rmSync("./allure-results", { recursive: true });
         }
+
+# Commands
+
+1. Create a command.js file
+2. add a command
+3. Add beforeCommand hook
+
+# Screenshot
+
+1. add in aftertest hook in wdio config - if error takeScreenshot
