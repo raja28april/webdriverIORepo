@@ -25,6 +25,7 @@
         "wdio": "wdio run wdio.conf.js",
         "automation-test-store-tests": "npx wdio --spec test/specs/automation-test-store/*.spec.js",
         "webdriverUniversity-tests": "npx wdio --spec test/specs/webdriverUniversity/*.spec.js",
+        "webdriverUniversity-tests-uat": "npx wdio config/wdio.uat.config.js --spec test/specs/webdriverUniversity/contact-us.spec.js",
         "smoke-suite": "npx wdio --suite smoke",
         "automation-test-store-suite": "npx wdio --suite automationTestStore"
     },

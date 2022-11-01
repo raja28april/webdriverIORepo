@@ -5,5 +5,5 @@ export const config = Object.assign(baseConfig, {
     "email": "raja123@mail.com",
     "firstName": "Raja",
     "lastName": "R",
-    "baseUrl": "https://staging.webdriveruniversity.com"
+    "baseUrl": "https://www.webdriveruniversity.com"
 })
