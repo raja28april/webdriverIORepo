@@ -1,4 +1,4 @@
-import BasePage from "./page";
+import BasePage from "../page";
 
 class contactUsPage extends BasePage {
     open() {
@@ -29,9 +29,6 @@ class contactUsPage extends BasePage {
     get unSuccessfulSubmissionHeader() {
         return $('body');
     }
-
-
-
 
     async submitForm(firstName, lastName, emailAddress, message) {
         await this.inputFirstName.setValue(firstName);
