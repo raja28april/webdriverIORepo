@@ -1,7 +1,7 @@
 describe('', () => {
 
     beforeEach(async () => {
-        await browser.maximizeWindow();
+        // await browser.maximizeWindow();
         await browser.url('/Ajax-Loader/index.html')
     });
 
