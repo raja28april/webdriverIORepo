@@ -13,7 +13,7 @@ describe('webdriverUniversity contact us page', () => {
     });
 
     it.only('valid submission - submit all information', async function () {
-        this.retries(1);
+        // this.retries(1);
         allureReporter.addFeature("Contact us page - valid submission");
         allureReporter.addDescription("Validate contact us page by submitting all data");
         allureReporter.addSeverity("Critical");
@@ -40,9 +40,9 @@ describe('webdriverUniversity contact us page', () => {
         contactUsPage.submitForm('Raja', 'R', 'raja123@gmail.com', 'Testing the message section');
 
         const successfulSubmissionHeader = $('#contact_reply>h1');
-        console.log(`successfulSubmissionHeader element: ${JSON.stringify(await successfulSubmissionHeader)}`);
-        await expect(successfulSubmissionHeader).toHaveText('Thank You for your Message!')//expect library
-        const successfulSubmissionHeader2 = await (await $('#contact_reply>h1')).getText();
+        console.log(`successfulSubmissionHeader element: ${JSON.stringify(contactUsPage.successfulSubmissionHeader)}`);
+        await expect(contactUsPage.successfulSubmissionHeader).toHaveText('Thank You for your Message!')//expect library
+        const successfulSubmissionHeader2 = contactUsPage.successfulSubmissionHeader.getText();
         expect(successfulSubmissionHeader2).toEqual('Thank You for your Message!')//jest library
         await browser.pause(5000);
 
@@ -66,10 +66,10 @@ describe('webdriverUniversity contact us page', () => {
         await message.setValue('Testing the message section');
         await btn_submit.click(); */
 
-        contactUsPage.submitForm('Raja', 'R', 'raja123@gmail.com', 'Testing the message section');
+        contactUsPage.submitForm('Raja', 'R', '', 'Testing the message section');
 
-        const errormsg = await $('body');
+        // const errormsg = await $('body');
         await browser.pause(5000);
-        await expect(errormsg).toHaveTextContaining(['Errror: Invalid email address', 'Error: all fields are required', 'Errror: Invalid email address']);
+        await expect(contactUsPage.unSuccessfulSubmissionHeader).toHaveTextContaining(['Errror: Invalid email address', 'Error: all fields are required', 'Errror: Invalid email address']);
     });
 });

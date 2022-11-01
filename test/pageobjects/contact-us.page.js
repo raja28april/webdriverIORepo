@@ -23,12 +23,23 @@ class contactUsPage extends BasePage {
         return $('//input[@value="SUBMIT"]');
     }
 
+    get successfulSubmissionHeader() {
+        return $('#contact_reply>h1');
+    }
+    get unSuccessfulSubmissionHeader() {
+        return $('body');
+    }
+
+
+
+
     async submitForm(firstName, lastName, emailAddress, message) {
         await this.inputFirstName.setValue(firstName);
         await this.inputLastName.setValue(lastName);
         await this.inputEmailAddress.setValue(emailAddress);
         await this.inputComment.setValue(message);
         await browser.waitThenClick(this.submitButton);
+        await browser.pause(2000);
     }
 }
 
