@@ -37,3 +37,19 @@ npx allure generate --clean allure-results -->
 # Screenshot
 
 1. add in aftertest hook in wdio config - if error takeScreenshot
+
+# Run specs
+
+case1:
+npx wdio --spec {path}
+eg: npx wdio --spec test/specs/webdriverUniversity/contact-us.spec.js
+eg2: npx wdio --spec test/specs/webdriverUniversity/contact-us.spec.js --exclude test/specs/webdriverUniversity/contact-us.spec.js
+
+case2:
+npm run {scriptsName-Given-in-package.json}
+eg:npm run automation-test-store-tests
+
+# Run suites
+
+npx wdio --suite {suiteName}
+eg: npx wdio --suite smoke

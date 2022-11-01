@@ -4,7 +4,7 @@
     "description": "",
     "private": true,
     "keywords": [],
-    "author": "",
+    "author": "Raja R",
     "license": "ISC",
     "devDependencies": {
         "@babel/core": "^7.19.6",
@@ -19,7 +19,10 @@
         "wdio-chromedriver-service": "^8.0.0"
     },
     "scripts": {
-        "wdio": "wdio run wdio.conf.js"
+        "wdio": "wdio run wdio.conf.js",
+        "automation-test-store-tests": "npx wdio --spec test/specs/automation-test-store/*.spec.js",
+        "webdriverUniversity-tests": "npx wdio --spec test/specs/webdriverUniversity/*.spec.js",
+        "smoke-suite": "npx wdio --suite smoke"
     },
     "dependencies": {
         "allure-commandline": "^2.18.1"

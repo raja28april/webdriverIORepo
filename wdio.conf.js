@@ -28,8 +28,18 @@ exports.config = {
     ],
     // Patterns to exclude.
     exclude: [
-        // 'path/to/excluded/files'
+        'test/specs/webdriverUniversity/wait-commands.spec.js', 'test/specs/mocha-example.js'
     ],
+    suites: {
+        smoke: [
+            './test/specs/**/add-items-to-basket.spec.js',
+            'test/specs/webdriverUniversity/locating-elements.spec.js',
+            'test/specs/webdriverUniversity/contact-us.spec.js'
+        ],
+        automationTestStore: [
+            'test/specs/automation-test-store/add-items-to-basket.spec.js'
+        ]
+    },
     //
     // ============
     // Capabilities
